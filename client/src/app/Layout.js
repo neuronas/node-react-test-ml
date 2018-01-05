@@ -11,6 +11,18 @@ import Stars from '../components/Filters/Stars';
 class Layout extends Component {
 
 
+  constructor(props) {
+    super(props);
+    this.onChange = this.onChange.bind(this)
+
+    this.state = {"filters": []}
+  }
+
+  onChange(param) {
+    this.setState({filters: param})
+  }
+
+
   render() {
   let filterButton = (<div>
                         Filtrar
@@ -23,14 +35,14 @@ class Layout extends Component {
         </Header>
 
         <NavBar button={filterButton}>
-            <Search defaultExpanded={false} classProp="nav-panel"/>
+            <Search defaultExpanded={false} classProp="nav-panel" size="large" onChange={this.onChange}/>
 
-            <Stars defaultExpanded={false} classProp="nav-panel"/>
+            <Stars defaultExpanded={false} classProp="nav-panel" onChange={this.onChange}/>
         </NavBar>
 
         <div className="container">
 
-          <Content />
+          <Content filters={this.state.filters}/>
 
           <hr>
           </hr>

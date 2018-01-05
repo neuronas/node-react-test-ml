@@ -1,35 +1,18 @@
 import React, { Component } from 'react';
-import ReactDOM from 'react-dom';
 import { Grid, Row, Col } from 'react-bootstrap';
 
 import Button from '../components/Button';
-
-
-// var imgName = "10210122_194_b.jpg";
-// const img = require(`../assets/images/hotels/${imgName}`)
-
-// import img from `../assets/images/hotels/${imgName}`;
 
 class Item extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      open: true,
+      open: true
     };
 
-    // this.loadImgAndGetWidth = this.loadImgAndGetWidth.bind(this)
   }
-
-  componentDidMount() {
-    // console.log("LASTTT")
-  }
-
-  componentDidUpdate(prevProps, prevState) {
-  }
-
 
   render() {
-    // console.log("item-props-I", this.props.data)
 
     let stars = []
     for (var i=0; i < parseFloat(this.props.data.stars); i++)  {
@@ -73,7 +56,7 @@ class Item extends Component {
 
           </div>
           <div className="text-center">
-            <Button size="btn-lg" value="Ver hotel" />
+            <Button size="large" classProp="btn-lg" value="Ver hotel" />
           </div>
 
         </Col>
@@ -84,19 +67,3 @@ class Item extends Component {
   }
 }
 export default Item;
-// <img src={img} alt={imgName} />
-            // <img src="10210122_194_b.jpg" width="190" height="50" className="img-hotel" />
-
-        // <Grid />
-        // <Row />
-        // <Col />
-
-
-        // <Grid fluid={true}>
-        //   <Row className="show-grid" >
-        //     <Col lg={8} md={8} xs={12} sm={9} >
-
-
-        //     </Col>
-        //   </Row>
-        // </Grid>

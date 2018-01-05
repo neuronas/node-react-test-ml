@@ -4,16 +4,10 @@ import { Button as ButtonBS } from 'react-bootstrap';
 class Button extends Component {
   
   render() {
-    let size = this.props.size ? this.props.size : ""
-    let bsSize = this.props.size === "btn-sm" ? "sm" : "lg"
+    let classProp = this.props.classProp ? this.props.classProp : ""
     return (
-      <ButtonBS bsClass="am-button" bsSize={bsSize} className={`btn ${size}`}>{this.props.value}</ButtonBS>
+      <ButtonBS bsClass="am-button" bsSize={this.props.size} className={`btn ${classProp}`}>{this.props.value}</ButtonBS>
     );
   }
 }
 export default Button;
-// glyphicon glyphicon-triangle-bottom
-
-// style={{"border": "none", "marginLeft": "5px"}} 
-
-// 

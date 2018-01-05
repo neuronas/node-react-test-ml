@@ -27,31 +27,14 @@ class Stars extends Component {
 
     let values = []
     Object.entries(this.state).map(([key, val]) => {
-      console.log("QQ", key,  val)
-      
       values[key] = false
     })
-
-    console.log("QQ-2", values)
-
     
     const target = event.target;
     const value = target.type === 'checkbox' ? target.checked : target.value;
     const name = target.name;
-    console.log("EEEEE-1", target.checked)
-    console.log("EEEEE-2", name)
-
-    // this.state.forEach((val, key) => {
-    //   val[key] = false
-    // })
-
-    // for (var i of this.state) {
-    //   console.log("QQ",this.state[i])
-    // } 
-
 
     values[name] = true
-
 
     this.setState(
       values
@@ -60,7 +43,6 @@ class Stars extends Component {
   }
 
   buildCheckbox(param, name, checked) {
-    console.log("BUILD", param)
 
     return (<div key={name} className="checkbox"><label title=""><input
       name={name}
@@ -71,8 +53,6 @@ class Stars extends Component {
   }
   
   render() {
-    console.log("STAR", this.state)
-    // console.log("TTTTHHH", this.checkBox)
 
     let stars = []
     for (var i=0; i < 5; i++)  {
@@ -81,7 +61,6 @@ class Stars extends Component {
     }
     let count = 5;
 
-    // let checkBoxs = []
     let name = 0
     let checkBoxs = stars.map((item, index) => {
       count--
@@ -106,11 +85,3 @@ class Stars extends Component {
   }
 }
 export default Stars;
-
-            
-            // <Checkbox >
-            //   {"Todas las estrellas"}
-            // </Checkbox>
-
-
-            // {checkBox.reverse()}

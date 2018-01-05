@@ -3,7 +3,6 @@ body {
   overflow-x: hidden; /* Prevent scroll on narrow devices */
 }
 body {
-  /*padding-top: 100px;*/
   background-color: #f4f4f4;
   margin: 0;
   padding: 0;
@@ -68,19 +67,52 @@ a:hover {
   font-weight: bold;
 }
 
+.overlay {
+  background-color: #fff;
+  position: relative;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 500px;
+}
+
+.overlay .glyphicon {
+  font-size: 40px;
+  margin-left: 50%;
+  margin-top: 20%;
+}
+
+.glyphicon-spin {
+    -webkit-animation: spin 1500ms infinite linear;
+    animation: spin 1500ms infinite linear;
+}
+@-webkit-keyframes spin {
+    0% {
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+    100% {
+        -webkit-transform: rotate(359deg);
+        transform: rotate(359deg);
+    }
+}
+@keyframes spin {
+    0% {
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+    100% {
+        -webkit-transform: rotate(359deg);
+        transform: rotate(359deg);
+    }
+}
+
 
 /* NAVBAR */
 
 .navbar-header {
-  /*height: 40px;*/
   background-color: #fff;
   text-align: center;
-  /*width:100%;*/
-
-    /*float: left;*/
-    /*padding: 15px;*/
-    /*display: inline-block;*/
-    /*margin: 0 auto*/
 }
 
 .navbar-header .navbar-toggle  {
@@ -119,7 +151,6 @@ div.navbar-collapse.collapse.in {
 
 
 
-
 /* PANEL */
 
 .panel {
@@ -149,7 +180,6 @@ div.navbar-collapse.collapse.in {
   cursor: pointer;
 }
 
-
 .nav-panel{
   margin-bottom: 0px;
 }
@@ -171,7 +201,6 @@ div.navbar-collapse.collapse.in {
 .panel-title {
   font-weight: bold;
   font-size: 12px;
-  /*display: inline-block;*/
   height: 18px;
 }
 
@@ -180,8 +209,7 @@ div.navbar-collapse.collapse.in {
 }
 
 .panel-title span {
-  height: 18px; /* image's height */
-  /*display: table-cell;*/
+  height: 18px;
   vertical-align: middle;
   top: -2px;
   display: inline-block;
@@ -192,11 +220,6 @@ div.navbar-collapse.collapse.in {
   max-width: 300px;
   display:inline-block;
 }
-
-.form-group {
-  /*display:inline-block;*/
-}
-
 
 .icon {
   height:16px;
@@ -234,9 +257,6 @@ div.navbar-collapse.collapse.in {
 
 
 .list {
-  /*height: 100%;*/
-  /*width: 749px;*/
-  /*background-color: green;*/
   float:left;
   position: relative;
   height: 100%;
@@ -315,7 +335,6 @@ div.navbar-collapse.collapse.in {
   }
 
   .box-img {
-    background-color: red;
     margin: 0 auto;
     display: flex;
     align-items: center;
@@ -342,10 +361,8 @@ div.navbar-collapse.collapse.in {
 
 .box-amenities {
   min-height:100px;
-  /*width:100%;*/
   min-width:160px;
   float:left;
-  /*padding-left: 6px;*/
 }
 
 .box-amenities img{

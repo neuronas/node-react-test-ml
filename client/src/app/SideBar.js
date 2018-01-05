@@ -21,7 +21,3 @@ class SideBar extends Component {
   }
 }
 export default SideBar;
-        // <Navbar.Collapse>
-        // </Navbar.Collapse>
-
-        // style={{"float": "left"}}

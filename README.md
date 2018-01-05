@@ -26,8 +26,13 @@ para el cliente se utilizo:
 
 ### instalar dependencias
 
+en una sola linea:
 ```bash
-$ cd /api && npm install && cd ../client && npm install
+$ cd api && npm i -s && cd .. && cd client && npm i -s && cd ..
+```
+o desde dentro de cada directorio (api y client):
+```bash
+$ npm install --save
 ```
 
 
@@ -51,17 +56,17 @@ para correr servidor con Persistencia de datos configurar el archivo "api/.env" 
 
 ```js
 PERSIST=true
-DB_HOST='mongodb://localhost/'
+DB_HOST='mongodb://localhost'
 DB_NAME='dbtest'
 DB_PORT='27017'
 ```
 
-**ejecutar previamente el deamon mongodB**
+**ejecutar previamente el deamon mongodB si no esta corriendo**
 
 ```bash
 $ mongod
 ```
-**finalmente correr el servidor**
+**finalmente iniciar el servidor**
 
 ```bash
 $ npm run dev
@@ -90,11 +95,11 @@ http://localhost:3000
 
 
 **Api:**
-
+desde el directorio api/ ejecutar:
 ```bash
 $ npm run prod
 ```
-no se toman las configuraciones del archivo .env y las variables de ambientes se tienen que configurar en el propio ambiente, sino, toma los valores por defecto:
+no se toman las configuraciones del archivo .env y las variables de ambiente se tienen que configurar en el propio ambiente, si las variables de ambiente no se configuran, toma los valores por defecto:
 ```js
 PORT=4000
 PERSIST=false
@@ -103,11 +108,12 @@ DB_NAME='dbtest'
 DB_PORT='27017'
 ```
 **Client:**
+desde el directorio client/ ejecutar:
 
 ```bash
-$ cd client && npm build
+$ npm run build
 ```
-los archivos minificado resultante que se encuentran en el directorio/build se debe hostear en un servidor :
+los archivos minificados resultantes que se encuentran en el directorio /build se deben hostear en un servidor de archivos:
 
 
 

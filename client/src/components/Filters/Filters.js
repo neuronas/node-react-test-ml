@@ -7,7 +7,6 @@ import Stars from './Stars';
 class Filters extends Component {
 
 
-
   render() {
     return (
       <div>
@@ -15,7 +14,7 @@ class Filters extends Component {
         <Panel headerTitle="Filtros" classProp="side-panel-bold">
         </Panel>
 
-        <Search defaultExpanded={this.props.defaultExpanded} classProp="side-panel"/>
+        <Search defaultExpanded={this.props.defaultExpanded} classProp="side-panel" size="small"/>
 
         <Stars defaultExpanded={this.props.defaultExpanded} onChange={this.props.onChange} classProp="side-panel"/>
 
