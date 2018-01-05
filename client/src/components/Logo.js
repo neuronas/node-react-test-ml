@@ -3,12 +3,6 @@ import logo from '../assets/images/logo-almundo.svg';
 
 class Logo extends Component {
 
-  static propTypes = {}
-
-  constructor(props) {
-    super(props);
-  }
-
   render() {
     return (
       <div >

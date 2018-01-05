@@ -2,12 +2,6 @@ import React, { Component } from 'react';
 
 class Header extends Component {
 
-  static propTypes = {}
-
-  constructor(props) {
-    super(props);
-  }
-
   render() {
     return (
       <div>

@@ -1,56 +1,27 @@
 import React, { Component } from 'react';
-import { Grid, Navbar, Nav, NavItem, Jumbotron, NavDropdown, MenuItem, Button, PanelGroup, FormGroup, Radio, FormControl, Form, Panel } from 'react-bootstrap';
-import PanelItem from '../components/PanelItem';
+
+import Filters from '../components/Filters/Filters';
+
 
 class SideBar extends Component {
 
-
-  constructor(...args) {
-    super(...args);
-    this.state = {
-      open: true,
-    };
-  }
-
   render() {
     return (
-       <div className="left-panel">
+      <div className="col-xs-6 col-sm-3 sidebar-offcanvas" id="sidebar">
 
-        <Navbar.Collapse>
 
-          <PanelItem headerTitle="Filtros" class="pr-panel-title">
-          </PanelItem>
+        <Filters onChange={this.props.onChange} />
 
-          <PanelItem headerTitle="Nombre de hotel" iconName="svgSearch" class="pr-panel">
-            <Form inline>
-              <FormGroup controlId="formControlsText">
-                <FormControl type="text" placeholder="Ingrese el nombre del hotel" />
-              </FormGroup>
-              <Button bsClass="pr-button">Aceptar</Button>
-            </Form>
-          </PanelItem>
+        <div className="list-group">
 
-          <PanelItem headerTitle="Estrellas" iconName="svgStar" class="pr-panel">
-            <FormGroup>
-              <Radio name="radioGroup">
-                1
-              </Radio>
-              {' '}
-              <Radio name="radioGroup">
-                2
-              </Radio>
-              {' '}
-              <Radio name="radioGroup">
-                3
-              </Radio>
-            </FormGroup>
-          </PanelItem>
-
-        </Navbar.Collapse>
-
+        </div>
       </div>
 
     );
   }
 }
 export default SideBar;
+        // <Navbar.Collapse>
+        // </Navbar.Collapse>
+
+        // style={{"float": "left"}}
