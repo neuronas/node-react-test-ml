@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Form, FormGroup, FormControl,Grid, Row, Col } from 'react-bootstrap';
+import { Form, FormGroup, FormControl } from 'react-bootstrap';
 
 import Panel from '../Panel';
 import Button from '../Button';

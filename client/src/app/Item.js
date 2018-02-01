@@ -1,33 +1,34 @@
 import React, { Component } from 'react';
-import { Grid, Row, Col } from 'react-bootstrap';
+import PropTypes from 'prop-types';
 
+import { Col } from 'react-bootstrap';
 import Button from '../components/Button';
 
 class Item extends Component {
+
+  static propTypes = {
+    data: PropTypes.object
+  }
+
   constructor(props) {
     super(props);
     this.state = {
       open: true
     };
-
   }
 
   render() {
-
     let stars = []
     for (var i=0; i < parseFloat(this.props.data.stars); i++)  {
       const star = <svg key={i} className="icon-sm icon-gold svgStar"></svg>
       stars.push(star)
     }
     let amenities = []
-    for (var i=0; i < this.props.data.amenities.length; i++)  {
-      const amenitie = <img key={i} className="icon-grey" src={`icons/amenities/${this.props.data.amenities[i]}.svg`}></img>
+    for (var e=0; e < this.props.data.amenities.length; e++)  {
+      const amenitie = <img key={e} className="icon-grey" src={`icons/amenities/${this.props.data.amenities[e]}.svg`} alt="amenitie"></img>
       amenities.push(amenitie)
     }
-
     return (
-
-
       <div className="item-hotel">
 
         <Col lg={4} md={4} sm={4} xs={12} className="box-img">

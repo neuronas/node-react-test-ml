@@ -7,9 +7,9 @@ node >= 6
 
 ### Api
 
-la api es un servidor NODE con Express que acepta metodos REST con parametros json
+la api es un servidor NODE con Express que acepta métodos REST con parámetros json
 
-* [Mongo DB](http://mongodb.github.io/node-mongodb-native)(persistencia de datos)
+* [Mongo DB](http://mongodb.github.io/node-mongodb-native) (persistencia de datos)
 * [Mongoose](https://github.com/Automattic/mongoose) (ORM)
 
 
@@ -26,7 +26,7 @@ para el cliente se utilizo:
 
 ### instalar dependencias
 
-en una sola linea:
+en una sola linea, ejecutar desde el directorio raiz:
 ```bash
 $ cd api && npm i -s && cd .. && cd client && npm i -s && cd ..
 ```
@@ -41,7 +41,7 @@ $ npm install --save
 
 
 **sin persistencia de datos**
-* los datos que devuelven los metodos /listar y /filtrar son tomados desde el archivo data.json
+* los datos que devuelven los métodos /listar y /filtrar son tomados desde el archivo data.json
 
 desde el directorio api/ ejecutar en una consola:
 
@@ -50,9 +50,13 @@ $ npm run dev
 ```
 
 **con persistencia de datos**
+
+**Requiere:**
+* [Servidor MongoDB](https://docs.mongodb.com/manual/installation/) (MongoDB Comunity Edition )
+
 * los datos iniciales se toman del archivo data.json y se cargan(se borran y vuelven a cargar) en la base de datos al ejecutar el servidor:
 
-para correr servidor con Persistencia de datos configurar el archivo "api/.env"  con los valores:
+para correr el servidor con Persistencia de datos configurar el archivo "api/.env"  con los valores:
 
 ```js
 PERSIST=true
@@ -61,7 +65,7 @@ DB_NAME='dbtest'
 DB_PORT='27017'
 ```
 
-**ejecutar previamente el deamon mongodB si no esta corriendo**
+**ejecutar previamente el daemon mongod si no esta corriendo**
 
 ```bash
 $ mongod
@@ -91,7 +95,7 @@ http://localhost:3000
 
 
 
-### deploy en produccion
+### deploy en producción
 
 
 **Api:**
@@ -107,13 +111,10 @@ DB_HOST='mongodb://localhost'
 DB_NAME='dbtest'
 DB_PORT='27017'
 ```
-**Client:**
+**Cliente:**
 desde el directorio client/ ejecutar:
 
 ```bash
 $ npm run build
 ```
-los archivos minificados resultantes que se encuentran en el directorio /build se deben hostear en un servidor de archivos:
-
-
-
+los archivos minificados resultantes que se encuentran en el directorio /build se deben hostear en un servidor de archivos estáticos:

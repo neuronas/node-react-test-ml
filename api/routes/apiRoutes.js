@@ -18,6 +18,26 @@ module.exports = function(app) {
 
   app.route('/guardar')
     .post(controller.guardar)
+
+  app.route('/actualizar/:id')
+    .put(controller.actualizar)
+
+  app.route('/eliminar/:id')
+    .delete(controller.eliminar)
 };
+
+
+
+
+
+// tvshows.route('/tvshows')
+//   .get(TVShowCtrl.findAllTVShows)
+//   .post(TVShowCtrl.addTVShow);
+
+// tvshows.route('/tvshows/:id')
+//   .get(TVShowCtrl.findById)
+//   .put(TVShowCtrl.updateTVShow)
+//   .delete(TVShowCtrl.deleteTVShow);
+
 
 

@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
-import { FormGroup, Checkbox} from 'react-bootstrap';
-// import Checkbox from '../Checkbox';
+import { FormGroup } from 'react-bootstrap';
 
 import Panel from '../Panel';
 
@@ -26,12 +25,11 @@ class Stars extends Component {
   handleInputChange(event) {
 
     let values = []
-    Object.entries(this.state).map(([key, val]) => {
+    Object.entries(this.state).forEach(([key, val]) => {
       values[key] = false
     })
     
     const target = event.target;
-    const value = target.type === 'checkbox' ? target.checked : target.value;
     const name = target.name;
 
     values[name] = true

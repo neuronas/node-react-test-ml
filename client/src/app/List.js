@@ -6,10 +6,6 @@ import LoadingOverlay from '../components/LoadingOverlay';
 
 class List extends Component {
 
-  constructor(props) {
-    super(props);
-  }
-
   componentWillReceiveProps(nextProps) {
     if (nextProps.data) {
       this.setState({"hotels": nextProps.data})
@@ -18,14 +14,13 @@ class List extends Component {
 
   render() {
     let items, content;
-    
+
     if (this.state && this.state.hotels.length > 0) {
       items = this.state.hotels.map((a) => {
-        return <Item key={a.id} data={a} filter={this.filter}/>
+        return <Item key={a._id} data={a}/>
       })
-      
     }
-    
+
     if (this.props.loading) {
       content = <LoadingOverlay />
     } else {

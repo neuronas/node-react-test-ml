@@ -4,16 +4,16 @@ const PERSIST = process.env.PERSIST || "false";
 var data = []
 
 if (PERSIST === "true") {
-var mongoose = require('mongoose'),
-    Hotels = mongoose.model('Hotels');
+  var mongoose = require('mongoose'),
+        Hotels = mongoose.model('Hotels');
 }
 
 /*
-* lista todos los registros 
+* lista todos los registros
 */
-exports.listar = function(req, res) {
+exports.listar = (req, res) => {
   if (PERSIST === "true") {
-    Hotels.find({}, function(err, data) {
+    Hotels.find({}, (err, data) => {
       if (err)
         res.send(err);
       res.json(data);
@@ -22,7 +22,7 @@ exports.listar = function(req, res) {
   } else {
 
     if (data.length == 0) {
-      Util.loadData(function(_data){
+      Util.loadData((_data) => {
         data = _data
         res.json(data)
       })
@@ -35,11 +35,11 @@ exports.listar = function(req, res) {
 /*
  * lista registros que coincidan con el filtro
  */
-exports.filtrar = function(req, res) {
+exports.filtrar = (req, res) => {
   var stars = req.body.stars
 
   if (PERSIST === "true") {
-    Hotels.find({stars}, function(err, data) {
+    Hotels.find({stars}, (err, data) => {
       if (err)
         res.send(err);
       res.json(data);
@@ -48,7 +48,7 @@ exports.filtrar = function(req, res) {
   } else {
     var result = [];
     if (data.length == 0) {
-      Util.loadData(function(_data){
+      Util.loadData((_data) => {
         data = _data
       })
     } else {
@@ -63,8 +63,8 @@ exports.filtrar = function(req, res) {
   }
 }
 
-/* 
-* crea un registro en la coleccion
+/*
+* crea un nuevo registro en una coleccion
 * params:
 *    {
 *      "name": "Hotel Stefanos",
@@ -80,7 +80,7 @@ exports.filtrar = function(req, res) {
 *      ]
 *    }
 */
-exports.guardar = function(req, res) {
+exports.guardar = (req, res) => {
   var params = req.body;
 
   var Hotel = new Hotels({
@@ -91,9 +91,52 @@ exports.guardar = function(req, res) {
     amenities:  params.amenities
   });
 
-  Hotel.save(function(err, Hotel) {
+  Hotel.save((err, Hotel) => {
     if(err) return res.send(500, err.message);
     res.status(200).jsonp(Hotel);
+  });
+
+}
+
+/*
+* actualiza un registro
+*/
+exports.actualizar = (req, res) => {
+  var params = req.body.hotel
+
+  Hotel.findById(params.id, function(err, hotel) {
+
+    hotel.name      =  params.name,
+    hotel.stars     =  params.stars,
+    hotel.price     =  params.price,
+    hotel.image     =  params.image,
+    hotel.amenities =  params.amenities
+
+    hotel.save(function(err) {
+      if(!err) {
+        console.log('Updated');
+      } else {
+        console.log('ERROR: ' + err);
+      }
+      res.send(hotel);
+    });
+  });
+}
+
+/*
+* Borra un Hotel con el ID especificaado
+*/
+exports.eliminar = (req, res) => {
+  var params = req.body.hotel
+
+  Hotel.findById(params.id, function(err, hotel) {
+    hotel.remove(function(err) {
+      if(!err) {
+        console.log('Removed');
+      } else {
+        console.log('ERROR: ' + err);
+      }
+    })
   });
 
 }

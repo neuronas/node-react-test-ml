@@ -1,12 +1,13 @@
+if (process.env.NODE_ENV !== 'prod') {
+  require('dotenv').config()
+}
+
 var express = require("express"),
     app = express(),
     port = process.env.PORT || 4000,
     bodyParser  = require("body-parser"),
     methodOverride = require("method-override");
 
-if (process.env.NODE_ENV !== 'prod') {
-  require('dotenv').config()
-}
 
 if (process.env.PERSIST === "true") {
   var mongoose = require("mongoose"),

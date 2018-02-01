@@ -36,7 +36,6 @@ class Layout extends Component {
 
         <NavBar button={filterButton}>
             <Search defaultExpanded={false} classProp="nav-panel" size="large" onChange={this.onChange}/>
-
             <Stars defaultExpanded={false} classProp="nav-panel" onChange={this.onChange}/>
         </NavBar>
 
