@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 
-import { Col } from 'react-bootstrap';
-import Button from '../components/Button';
+import shipping from '../assets/images/ic_shipping.png';
 
 class Item extends Component {
 
@@ -18,52 +18,27 @@ class Item extends Component {
   }
 
   render() {
-    let stars = []
-    for (var i=0; i < parseFloat(this.props.data.stars); i++)  {
-      const star = <svg key={i} className="icon-sm icon-gold svgStar"></svg>
-      stars.push(star)
-    }
-    let amenities = []
-    for (var e=0; e < this.props.data.amenities.length; e++)  {
-      const amenitie = <img key={e} className="icon-grey" src={`icons/amenities/${this.props.data.amenities[e]}.svg`} alt="amenitie"></img>
-      amenities.push(amenitie)
-    }
+    const item = this.props.data
+    const currency = item.price.currency === "ARS" ? "$" : item.price.currency;
+    const freeShipping = item.free_shipping === true ? (<img src={shipping} className="img-shipping" alt="shipping" />) : ""
     return (
-      <div className="item-hotel">
-
-        <Col lg={4} md={4} sm={4} xs={12} className="box-img">
-          <img ref="hotel" src={`images/hotels/${this.props.data.image}`} alt="hotel" />
-        </Col>
-
-        <Col className="box-amenities" lg={4} md={4} sm={3} xs={12}>
-          <h4>{this.props.data.name}</h4>
-            {stars}
-          <br />
-            {amenities}
-        </Col>
-
-        <Col lg={3} md={3} sm={4} xs={12} className="box-price">
-          <p className="desc-text text-center">
-            Precio por noche de habitación
-          </p>
-
-          <div className="text-center">
-            <span className="price-text ">
-              {"ARS "}
-            </span>
-            <span className="price-number ">
-            {this.props.data.price.toFixed(2).slice(0, -3)}
-            </span>
-
-          </div>
-          <div className="text-center">
-            <Button size="large" classProp="btn-lg" value="Ver hotel" />
+      <div className="col-sm-12 col-md-12 col-lg-12 product-list no-padding">
+        <Link to={`/items/${item.id}`}>
+          <div className="box-img">
+            <img ref="product" src={item.picture} alt="product" />
           </div>
 
-        </Col>
+          <div className="col-sm-5 col-md-5 col-lg-5 box-description no-padding">
+            <div className="price-text">
+              {currency + " " + item.price.amount + (item.price.decimals !== null ? "." + item.price.decimals : "") + " "} {freeShipping}
+            </div>
+            <p className="title">{item.title}</p>
+          </div>
+
+          <div className="col-sm-3 col-md-3 col-lg-3 box-price">
+          </div>
+        </Link>
       </div>
-
-
     );
   }
 }

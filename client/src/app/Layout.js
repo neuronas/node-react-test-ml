@@ -1,56 +1,27 @@
 import React, { Component } from 'react';
+import { Switch, Route } from 'react-router-dom'
 
-import Content from './Content';
 import Header from './Header';
+import Home from './Home';
+import Product from './Product';
 import Logo from '../components/Logo';
-import NavBar from '../components/NavBar';
-import Search from '../components/Filters/Search';
-import Stars from '../components/Filters/Stars';
-
+import InputSearch from '../components/InputSearch';
 
 class Layout extends Component {
 
-
-  constructor(props) {
-    super(props);
-    this.onChange = this.onChange.bind(this)
-
-    this.state = {"filters": []}
-  }
-
-  onChange(param) {
-    this.setState({filters: param})
-  }
-
-
   render() {
-  let filterButton = (<div>
-                        Filtrar
-                        <span className="glyphicon glyphicon-triangle-bottom"></span>
-                      </div>)
     return (
       <div>
+
         <Header>
           <Logo />
+          <InputSearch/>
         </Header>
 
-        <NavBar button={filterButton}>
-            <Search defaultExpanded={false} classProp="nav-panel" size="large" onChange={this.onChange}/>
-            <Stars defaultExpanded={false} classProp="nav-panel" onChange={this.onChange}/>
-        </NavBar>
-
-        <div className="container">
-
-          <Content filters={this.state.filters}/>
-
-          <hr>
-          </hr>
-
-          <footer>
-            <p>&copy; 2018</p>
-          </footer>
-
-        </div>
+        <Switch>
+          <Route exact path='/' component={Home}/>
+          <Route path='/items' render={(props) => <Product {...props}/>}/>
+        </Switch>
 
       </div>
     );

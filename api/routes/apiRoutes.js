@@ -1,7 +1,7 @@
 'use strict';
 module.exports = function(app) {
   var controller = require('../controllers/apiController');
-  
+
 /*
     HTTP Verb   Operation
     GET           Read
@@ -10,34 +10,8 @@ module.exports = function(app) {
     DELETE        Delete
 */
 
-  app.route('/listar')
-    .get(controller.listar)
-
-  app.route('/filtrar')
-    .post(controller.filtrar);
-
-  app.route('/guardar')
-    .post(controller.guardar)
-
-  app.route('/actualizar/:id')
-    .put(controller.actualizar)
-
-  app.route('/eliminar/:id')
-    .delete(controller.eliminar)
+  app.route('/api/items')
+    .get(controller.showItems)
+  app.route('/api/items/:id')
+    .get(controller.showItem);
 };
-
-
-
-
-
-// tvshows.route('/tvshows')
-//   .get(TVShowCtrl.findAllTVShows)
-//   .post(TVShowCtrl.addTVShow);
-
-// tvshows.route('/tvshows/:id')
-//   .get(TVShowCtrl.findById)
-//   .put(TVShowCtrl.updateTVShow)
-//   .delete(TVShowCtrl.deleteTVShow);
-
-
-

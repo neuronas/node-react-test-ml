@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
-import logo from '../assets/images/logo-almundo.svg';
+import logo from '../assets/images/Logo_ML.png';
 
 class Logo extends Component {
 
   render() {
     return (
-      <div >
-        <img src={logo} className="app-logo" alt="logo" />
+      <div className="img-logo">
+        <img src={logo}  alt="logo" />
       </div>
     );
   }

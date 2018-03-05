@@ -5,23 +5,28 @@
 
 node >= 6
 
+---
+
 ### Api
 
 la api es un servidor NODE con Express que acepta métodos REST con parámetros json
 
-* [Mongo DB](http://mongodb.github.io/node-mongodb-native) (persistencia de datos)
-* [Mongoose](https://github.com/Automattic/mongoose) (ORM)
+y expone los siguientes endpoints:
+
+lista de 4 productos que coinciden con :query
+
+`/api/items?q=:query`
+
+descripcion del producto :id
+
+`/api/items/:id`
 
 
 ### Client
 
-para el cliente se utilizo:
+para el cliente se utilizo React con el siguiente borlerplate:
 
 * [Create React App](https://github.com/facebookincubator/create-react) (Borlerplate pre configurado)
-* [React Bootstrap](https://react-bootstrap.github.io/)	(Bootstrap para React)
-* [offcanvas](https://getbootstrap.com/docs/3.3/examples/offcanvas/) (Plantilla responsive)
-
-
 
 
 ### instalar dependencias
@@ -39,38 +44,7 @@ $ npm install --save
 
 ### correr API en ambiente dev
 
-
-**sin persistencia de datos**
-* los datos que devuelven los métodos /listar y /filtrar son tomados desde el archivo data.json
-
 desde el directorio api/ ejecutar en una consola:
-
-```bash
-$ npm run dev
-```
-
-**con persistencia de datos**
-
-**Requiere:**
-* [Servidor MongoDB](https://docs.mongodb.com/manual/installation/) (MongoDB Comunity Edition )
-
-* los datos iniciales se toman del archivo data.json y se cargan(se borran y vuelven a cargar) en la base de datos al ejecutar el servidor:
-
-para correr el servidor con Persistencia de datos configurar el archivo "api/.env"  con los valores:
-
-```js
-PERSIST=true
-DB_HOST='mongodb://localhost'
-DB_NAME='dbtest'
-DB_PORT='27017'
-```
-
-**ejecutar previamente el daemon mongod si no esta corriendo**
-
-```bash
-$ mongod
-```
-**finalmente iniciar el servidor**
 
 ```bash
 $ npm run dev
@@ -94,9 +68,7 @@ se accede al recurso por:
 http://localhost:3000
 
 
-
 ### deploy en producción
-
 
 **Api:**
 desde el directorio api/ ejecutar:
@@ -106,10 +78,8 @@ $ npm run prod
 no se toman las configuraciones del archivo .env y las variables de ambiente se tienen que configurar en el propio ambiente, si las variables de ambiente no se configuran, toma los valores por defecto:
 ```js
 PORT=4000
-PERSIST=false
-DB_HOST='mongodb://localhost'
-DB_NAME='dbtest'
-DB_PORT='27017'
+AUTHORNAME='Orlando'
+AUTHORLASTNAME='Nuske'
 ```
 **Cliente:**
 desde el directorio client/ ejecutar:

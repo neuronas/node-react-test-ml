@@ -4,11 +4,9 @@ class Header extends Component {
 
   render() {
     return (
-      <div>
-        <div className="header-container">
-          <div className="header">
-            {this.props.children}
-          </div>
+      <div className="header-container">
+        <div className="header">
+          {this.props.children}
         </div>
       </div>
     );
