@@ -24,7 +24,7 @@ descripcion del producto :id
 
 ### Client
 
-para el cliente se utilizo React con el siguiente borlerplate:
+para el cliente se utilizó React con el siguiente borlerplate:
 
 * [Create React App](https://github.com/facebookincubator/create-react) (Borlerplate pre configurado)
 
@@ -78,8 +78,8 @@ $ npm run prod
 no se toman las configuraciones del archivo .env y las variables de ambiente se tienen que configurar en el propio ambiente, si las variables de ambiente no se configuran, toma los valores por defecto:
 ```js
 PORT=4000
-AUTHORNAME='Orlando'
-AUTHORLASTNAME='Nuske'
+AUTHORNAME=null
+AUTHORLASTNAME=null
 ```
 **Cliente:**
 desde el directorio client/ ejecutar:
